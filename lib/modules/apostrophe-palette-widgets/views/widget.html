@@ -1,0 +1,21 @@
+{% import "apostrophe-schemas:macros.html" as schemas with context %}
+{% set groups = apos.global.options.arrangedPaletteFields %}
+{{ apos.log(data.global.backgroundColor) }}
+
+{{ apos.log('rendering') }}
+
+<div class="apos-palette" style="margin-top: 300px;">
+  <form class="apos-submit-pieces-form apos-ui" data-apos-palette-form>
+    <h4>The Palette</h4>
+    <ul>
+      {% for group in groups %}
+        <li> {{ group.label }}</li>
+        <ul>
+          {% for field in group.schema %}
+            {{ apos.schemas.field(field, options.readOnly) }}
+          {% endfor %}
+        </ul>
+      {% endfor %}
+    </ul>
+  </form>
+</div>
