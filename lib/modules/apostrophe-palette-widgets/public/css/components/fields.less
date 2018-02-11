@@ -1,0 +1,65 @@
+.apos-palette .apos-ui {
+
+  .apos-field-label {
+    color: #616161;
+    font-size: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+    line-height: 10px;
+    transition: all 0.3s ease;
+  }
+
+  .apos-field-input {
+    background-color: white;
+    color: #3E3E3E;
+    font-weight: 600;
+    border: 1px solid #E4E4E4;
+    font-size: 10px;
+    padding: 8px 10px;
+    transition: all 0.3s ease;
+  }
+
+  .apos-field {
+    margin-bottom: 25px;
+
+    &:hover {
+      .apos-field-label { color: #000; }
+      .apos-field-input { border: 1px solid #000; }
+    }
+  }
+
+  .apos-field-input-select-wrapper {
+    &:after {
+      top: 16px;
+      right: 15px;
+      font-size: 11px;
+    }
+  }
+
+  .apos-field-colorpicker {
+    max-width: 100%;
+
+    .apos-field-input-colorpicker-preview {
+      float: none;
+      width: 100%;
+      border-radius: 2px;
+      height: 30px;
+      box-shadow: 0 0 4px 1px rgba(0,0,0,0.20);
+      border: 1px solid white;
+    }
+
+    .sp-replacer {
+      padding: 0;
+      left: auto;
+      right: 0;
+      top: 0;
+      font-size: 10px;
+      width: 100%;
+      text-align: right;
+      height: 100%;
+      color: #3E3E3E;
+      font-weight: 600;
+    }
+  }
+}

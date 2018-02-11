@@ -1,20 +1,27 @@
 {% import "apostrophe-schemas:macros.html" as schemas with context %}
+{% import "svg/index.html" as svg with context %}
+
 {% set groups = apos.global.options.arrangedPaletteFields %}
-{{ apos.log(data.global.backgroundColor) }}
 
-{{ apos.log('rendering') }}
-
-<div class="apos-palette" style="margin-top: 300px;">
-  <form class="apos-submit-pieces-form apos-ui" data-apos-palette-form>
-    <h4>The Palette</h4>
+<div class="apos-palette">
+  <form class="apos-palette-form apos-ui" data-apos-palette-form>
     <ul>
       {% for group in groups %}
-        <li> {{ group.label }}</li>
-        <ul>
-          {% for field in group.schema %}
-            {{ apos.schemas.field(field, options.readOnly) }}
-          {% endfor %}
-        </ul>
+        <li class="apos-palette__group">
+          <button class="apos-palette__group-button" data-apos-palette-group-button>
+            <span class="apos-palette__group-icon">
+              {{ svg.plus() }}
+            </span>
+            {{ group.label }}
+          </button>
+          {% if group.schema.length %}
+            <ul class="apos-palette__group-items" data-apos-palette-group-items>
+              {% for field in group.schema %}
+                {{ apos.schemas.field(field, options.readOnly) }}
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </li>
       {% endfor %}
     </ul>
   </form>
