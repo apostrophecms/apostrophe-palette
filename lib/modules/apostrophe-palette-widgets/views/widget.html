@@ -1,0 +1,28 @@
+{% import "apostrophe-schemas:macros.html" as schemas with context %}
+{% import "svg/index.html" as svg with context %}
+
+{% set groups = apos.global.options.arrangedPaletteFields %}
+
+<div class="apos-palette">
+  <form class="apos-palette-form apos-ui" data-apos-palette-form>
+    <ul>
+      {% for group in groups %}
+        <li class="apos-palette__group">
+          <button class="apos-palette__group-button" data-apos-palette-group-button>
+            <span class="apos-palette__group-icon">
+              {{ svg.plus() }}
+            </span>
+            {{ group.label }}
+          </button>
+          {% if group.schema.length %}
+            <ul class="apos-palette__group-items" data-apos-palette-group-items>
+              {% for field in group.schema %}
+                {{ apos.schemas.field(field, options.readOnly) }}
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </form>
+</div>

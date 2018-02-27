@@ -1,0 +1,27 @@
+.apos-ui .apos-palette__group-items {
+  transition: all 0.4s ease;
+  max-height: 0;
+  overflow: hidden;
+  background-color: #fff;
+  padding: 0 10px;
+}
+
+.apos-palette__plus-i { transition: opacity 0.3s ease; }
+
+.apos-ui .apos-palette__group--active {
+  .apos-palette__group-items {
+    max-height: 999px;
+    padding: 15px 10px;
+    overflow: scroll;
+  }
+  .apos-palette__plus {
+    .apos-palette__plus-i {
+      opacity: 0;
+    }
+  }
+}
+
+.apos-ui .apos-palette__group-icon {
+  display: inline-block;
+  margin-right: 5px;
+}
