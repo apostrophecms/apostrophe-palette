@@ -6,6 +6,7 @@ todo
 - BUG colorpicker field does not update if value is changed in the global modal
 - [x] style the dang form
 - [x] cleanup the $field thing
+- make a nicer template fragment to drop in to a project
 
 # apostrophe-palette
 

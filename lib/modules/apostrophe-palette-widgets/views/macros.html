@@ -1,0 +1,11 @@
+{% macro render(context, name) %}
+  <div class="apos-palette-container" data-apos-palette>
+    {{ apos.singleton(context, name, 'apostrophe-palette', {
+      controls: {
+        removable: false,
+        movable: false,
+        cloneable: false
+      }
+    }) }}
+  </div>
+{% endmacro %}
