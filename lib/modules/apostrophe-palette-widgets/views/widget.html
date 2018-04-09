@@ -1,27 +1,49 @@
 {% import "apostrophe-schemas:macros.html" as schemas with context %}
 {% import "svg/index.html" as svg with context %}
 
-{% set groups = apos.global.options.arrangedPaletteFields %}
+{% set menu = apos.global.options.arrangedPaletteFields %}
+
+{% macro renderGroupButton(group) %}
+  <button class="apos-palette__group-button" data-apos-palette-group-button>
+    <span class="apos-palette__group-icon">
+      {{ svg.plus() }}
+    </span>
+    {{ group.label }}
+  </button>
+{% endmacro %}
+
+{% macro renderField(field) %}
+  <li class="apos-palette__field">
+    {{ apos.schemas.field(field, options.readOnly) }}
+  </li>
+{% endmacro %}
+
+{% macro renderGroup(group) %}
+  <li class="apos-palette__group">
+    {{ renderGroupButton(group) }}
+    <ul class="apos-palette__group-items">
+      {% if group.schema %}
+        {% for field in group.schema %}
+          {{ renderField(field) }}
+        {% endfor %}
+      {% elif group.groups %}
+        {% for innerGroup in group.groups %}
+          {{ renderGroup(innerGroup) }}
+        {% endfor %}
+      {% endif %}
+    </ul>
+  </li>
+{% endmacro %}
 
 <div class="apos-palette">
   <form class="apos-palette-form apos-ui" data-apos-palette-form>
-    <ul>
-      {% for group in groups %}
-        <li class="apos-palette__group">
-          <button class="apos-palette__group-button" data-apos-palette-group-button>
-            <span class="apos-palette__group-icon">
-              {{ svg.plus() }}
-            </span>
-            {{ group.label }}
-          </button>
-          {% if group.schema.length %}
-            <ul class="apos-palette__group-items" data-apos-palette-group-items>
-              {% for field in group.schema %}
-                {{ apos.schemas.field(field, options.readOnly) }}
-              {% endfor %}
-            </ul>
-          {% endif %}
-        </li>
+    <ul class="apos-palette-form-schema" >
+      {% for item in menu %}
+        {% if item.type === 'field' %}
+          {{ renderField(item.schema[0]) }}
+        {% elif item.type === 'group' %}
+          {{ renderGroup(item) }}
+        {% endif %}
       {% endfor %}
     </ul>
   </form>

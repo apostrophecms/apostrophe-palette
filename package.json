@@ -30,7 +30,6 @@
   },
   "dependencies": {
     "async": "^2.6.0",
-    "bluebird": "^3.5.1",
     "install-peers": "^1.0.2",
     "lodash": "^4.17.4"
   }

@@ -2,26 +2,38 @@
   transition: all 0.4s ease;
   max-height: 0;
   overflow: hidden;
-  background-color: #fff;
-  padding: 0 10px;
 }
 
 .apos-palette__plus-i { transition: opacity 0.3s ease; }
 
 .apos-ui .apos-palette__group--active {
-  .apos-palette__group-items {
+  & > .apos-palette__group-items {
     max-height: 999px;
-    padding: 15px 10px;
+    // padding: 15px 10px;
     overflow: scroll;
   }
-  .apos-palette__plus {
+
+  & > .apos-palette__group-button .apos-palette__plus {
     .apos-palette__plus-i {
       opacity: 0;
     }
+  }
+
+  & > .apos-palette__group-items .apos-palette__field {
+    padding: 15px 10px;
   }
 }
 
 .apos-ui .apos-palette__group-icon {
   display: inline-block;
   margin-right: 5px;
+}
+
+.apos-palette__field {
+  padding: 0 10px;
+  background-color: #fff;
+}
+
+.apos-palette-form-schema > .apos-palette__field {
+  padding: 15px 10px;
 }
