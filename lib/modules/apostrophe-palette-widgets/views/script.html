@@ -1,0 +1,16 @@
+{% macro newRule(value, fieldSchema) %}
+  {%- if fieldSchema.selector and value -%}
+    {{ fieldSchema.selector }} { {{ fieldSchema.property }}: {{ value }}; }
+  {%- endif -%}
+{% endmacro %}
+
+{% macro tag(apos, global) %}
+  <style id="apos-palette-styles" data-apos-palette-styles>
+    {%- for key, value in global -%}
+      {% set fieldSchema = apos.modules['apostrophe-global'].aposPaletteGetFieldSchema(key)  %}
+      {%- if (fieldSchema) -%}
+        {{ newRule(value, fieldSchema) }}
+      {%- endif -%}
+    {% endfor %}
+  </style>
+{% endmacro %}
