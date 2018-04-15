@@ -1,6 +1,12 @@
 {% macro newRule(value, fieldSchema) %}
   {%- if fieldSchema.selector and value -%}
-    {{ fieldSchema.selector }} { {{ fieldSchema.property }}: {{ value }}; }
+    {%- if apos.global.aposPaletteIsArray(fieldSchema.property) -%}
+      {%- for property in fieldSchema.property -%}
+        {{ fieldSchema.selector }} { {{ property }}: {{ value }}{% if fieldSchema.unit %}{{ fieldSchema.unit }}{% endif %}; }
+      {%- endfor -%}
+    {%- else -%}
+      {{ fieldSchema.selector }} { {{ fieldSchema.property }}: {{ value }}{% if fieldSchema.unit %}{{ fieldSchema.unit }}{% endif %}; }
+    {%- endif -%}
   {%- endif -%}
 {% endmacro %}
 
