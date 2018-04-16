@@ -1,5 +1,5 @@
 {% macro newRule(value, fieldSchema) %}
-  {%- if fieldSchema.selector and value -%}
+  {%- if fieldSchema.selector and (value !== null or value!== undefined) -%}
     {%- if apos.global.aposPaletteIsArray(fieldSchema.property) -%}
       {%- for property in fieldSchema.property -%}
         {{ fieldSchema.selector }} { {{ property }}: {{ value }}{% if fieldSchema.unit %}{{ fieldSchema.unit }}{% endif %}; }
@@ -7,6 +7,8 @@
     {%- else -%}
       {{ fieldSchema.selector }} { {{ fieldSchema.property }}: {{ value }}{% if fieldSchema.unit %}{{ fieldSchema.unit }}{% endif %}; }
     {%- endif -%}
+  {% else %}
+    {{ apos.log('didnt make it ' + fieldSchema.name + ' value of ' + value) }}
   {%- endif -%}
 {% endmacro %}
 
