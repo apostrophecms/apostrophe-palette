@@ -1,6 +1,6 @@
 {% macro render(field, bodyMacro) %}
   {% set options = { 'id': apos.utils.generateId() } %}
-  <fieldset data-apos-palette-field data-apos-palette-property="{{ field.property }}" data-apos-palette-selector="{{ field.selector }}" {% if field.unit %}data-apos-palette-unit="{{ field.unit }}" {% endif %} class="apos-field apos-field-{{ field.type | css }} apos-field-{{ field.name | css }} {{ field.classes }}" data-name="{{ field.name }}" {{ field.attributes }}>
+  <fieldset data-apos-palette-field data-apos-palette-property="{{ field.property }}" {% if field.mediaQuery %} data-apos-palette-media-query="{{ field.mediaQuery }}"{% endif %} data-apos-palette-selector="{{ field.selector }}" {% if field.unit %}data-apos-palette-unit="{{ field.unit }}" {% endif %} class="apos-field apos-field-{{ field.type | css }} apos-field-{{ field.name | css }} {{ field.classes }}" data-name="{{ field.name }}" {{ field.attributes }}>
     <label for="{{ options.id }}" class="apos-field-label">{{ __(field.label | d('')) }}</label>
     {%- if field.help -%}
       <div class="apos-field-help">{{ __(field.help) }}</div>
