@@ -1,13 +1,22 @@
 {% macro newRule(value, fieldSchema) %}
   {%- if fieldSchema.selector and (value !== null or value !== undefined) -%}
-    {%- if apos.global.aposPaletteIsArray(fieldSchema.property) -%}
-      {%- for property in fieldSchema.property -%}
-        {% if fieldSchema.mediaQuery %}@media {{ fieldSchema.mediaQuery }} { {% endif %} {{ fieldSchema.selector }} { {{ property }}: {{ value }}{% if fieldSchema.unit %}{{ fieldSchema.unit }}{% endif %}; } {% if fieldSchema.mediaQuery %}} {% endif %}
-      {%- endfor -%}
+    {%- if not apos.global.aposPaletteIsArray(fieldSchema.property) -%}
+      {%- set props = [ fieldSchema.property ] -%}
     {%- else -%}
-      {% if fieldSchema.mediaQuery %}@media {{ fieldSchema.mediaQuery }} { {% endif %} {{ fieldSchema.selector }} { {{ fieldSchema.property }}: {{ value }}{% if fieldSchema.unit %}{{ fieldSchema.unit }}{% endif %}; } {% if fieldSchema.mediaQuery %}} {% endif %}
+      {%- set props = fieldSchema.property -%}
+    {% endif %}
+    {%- if not apos.global.aposPaletteIsArray(fieldSchema.selector) -%}
+      {%- set selectors = [ fieldSchema.selector ] -%}
+    {%- else -%}
+      {%- set selectors = fieldSchema.selector -%}
     {%- endif -%}
+    {%- for property in props -%}
+      {%- for selector in selectors -%}
+        {% if fieldSchema.mediaQuery %}@media {{ fieldSchema.mediaQuery }} { {% endif %}{{ selector }} { {{ property }}: {{ value }}{% if fieldSchema.unit %}{{ fieldSchema.unit }}{% endif %}; }{% if fieldSchema.mediaQuery %} } {% endif %}
+      {%- endfor -%}
+    {%- endfor -%}
   {%- endif -%}
+
 {% endmacro %}
 
 {% macro tag(apos, global) %}
