@@ -1,4 +1,4 @@
-{% macro render(context, name) %}
+{% macro palette(context, name) %}
   <div class="apos-palette-container" data-apos-palette>
     {{ apos.singleton(context, name, 'apostrophe-palette', {
       controls: {
@@ -8,4 +8,12 @@
       }
     }) }}
   </div>
+{% endmacro %}
+
+{% macro stylesheetLink(global) %}
+  <link rel="stylesheet" href="/modules/apostrophe-global/palette-styles?{{ global.paletteCounter or 'e' }}">
+{% endmacro %}
+
+{% macro stylesheetTag() %}
+  <style data-apos-palette-styles></style>
 {% endmacro %}
