@@ -1,5 +1,5 @@
 # apostrophe-palette
-## An in-context interface for changing CSS
+An in-context interface for changing CSS
 
 ![apostrophe-palette demo](images/crocus-demo.gif)
 
