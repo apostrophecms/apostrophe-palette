@@ -1,6 +1,8 @@
 # apostrophe-palette
 ## An in-context interface for changing CSS
 
+!(images/crocus-demo.gif)
+
 `apostrophe-palette` is a bundle that provides an in-context interface for changing the values of developer-set CSS properties. The values are stored in the `apostrophe-global` document and applied to the site whenever the stylesheet link is included in a template. Adjusting values via the palette interface renders changes to the site instantly.
 
 Developers define properties that can be changed by passing the module an array of `apostrophe-schema` fields.
@@ -39,7 +41,8 @@ modules: {
         min: 0,
         max: 10,
         step: 0.1,
-        unit: 'rem'
+        unit: 'rem',
+        mediaQuery: '(max-width: 59.99em)'
       }
     ],
     arrangePaletteFields: [
@@ -66,7 +69,7 @@ This becomes the name of the field when saved to the `apostrophe-global` documen
 Normal schema label
 
 #### `type`
-A subset of of `apostrophe-schema` field types. Can take `string`, `range`, `color`, and `select`.
+A subset of of `apostrophe-schema` field types. Can take `string`, `range`, `color`, and `select`. Using other field types is permitted but not guaranteed.
 
 #### `selector`
 A string or array of strings to be used as CSS selectors. These are printed as-is, so it is valid to pass things like `body`, `.template p`, `#someId [data-foo]`, etc. All selectors will be used to target the `property` property and give the value of the field.
@@ -76,6 +79,10 @@ A string or array of strings to be used as CSS properties. These are printed as-
 
 #### `unit` (optional)
 A string that is appended after the value of the field is printed as a CSS rule.
+
+#### `mediaQuery` (optional)
+A string used to wrap a rule in a CSS media query. The format is as follows `@media YOURMEDIAQUERY { YOURSELECTOR { YOURPROPERTY YOURUNIT; } }`
+- Note, using the media query property will only apply that field's value to that media query. You may need multiple fields to fill out the spectrum of sizes
 
 
 ### `arrangePaletteFields`
@@ -105,9 +112,34 @@ In `layout.html`
 Then you should be able to 'create' your palette widget by opening the drawer and clicking Add Palette.
 !(images/palette.gif)
 
+## Front-end events
+Palette's widget has two front-end places you can hook into if you want to run some extra JavaScript before or after the submission of the new palette value. These would be handy places to send an editor a message, or use the submitted information to perform a more complex action on the page.
+
+In `lib/modules/apostrophe-palette-widgets/public/js/user.js`
+
+```js
+apos.define('apostrophe-palette-widgets', {
+  construct: function (self, options) {
+
+    // runs before the new palette values are sent to the server but does not block it
+    self.beforeSubmit = function ($field, fieldValue, fieldSchema) {
+      console.log($field); // the jQuery object for the schema field
+      console.log(fieldValue); // the new value being sent to the server
+      console.log(fieldSchema); // the changed field's schema
+    };
+
+    // runs after the front-end has recieved word that submission process has completed
+    self.afterSubmit = function ($field, fieldValue, fieldSchema) {
+      console.log($field); // the jQuery object for the schema field
+      console.log(fieldValue); // the new value being sent to the server
+      console.log(fieldSchema); // the changed field's schema
+    };
+
+  }
+});
+```
+
 ## What actually happens?
 Everytime the palette stylesheet is requested, Apostrophe generates a stylesheet based on the `paletteFields` and their values at the time of render and sends it to the browser. When an editor toggles the values of palette fields via it's widget, front-end JavaScript updates the `<style>` tag associated with palette with those changes. This makes sure the latest changes are last in the cascade. It also sends the new values to the server for sanitization and saving.
 
 The generated stylesheets get properly cached until changes are made, at which time the browser is made aware there is a new version to fetch.
-
-test
