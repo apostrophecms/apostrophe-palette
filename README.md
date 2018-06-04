@@ -110,3 +110,4 @@ Everytime the palette stylesheet is requested, Apostrophe generates a stylesheet
 
 The generated stylesheets get properly cached until changes are made, at which time the browser is made aware there is a new version to fetch.
 
+test
