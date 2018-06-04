@@ -1,7 +1,7 @@
 # apostrophe-palette
 ## An in-context interface for changing CSS
 
-!(images/crocus-demo.gif)
+![apostrophe-palette demo](images/crocus-demo.gif)
 
 `apostrophe-palette` is a bundle that provides an in-context interface for changing the values of developer-set CSS properties. The values are stored in the `apostrophe-global` document and applied to the site whenever the stylesheet link is included in a template. Adjusting values via the palette interface renders changes to the site instantly.
 
@@ -110,7 +110,7 @@ In `layout.html`
 ```
 
 Then you should be able to 'create' your palette widget by opening the drawer and clicking Add Palette.
-!(images/palette.gif)
+![create a palette widget](images/palette.gif)
 
 ## Front-end events
 Palette's widget has two front-end places you can hook into if you want to run some extra JavaScript before or after the submission of the new palette value. These would be handy places to send an editor a message, or use the submitted information to perform a more complex action on the page.
