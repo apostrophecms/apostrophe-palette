@@ -11,7 +11,7 @@
 {% endmacro %}
 
 {% macro stylesheetLink(global) %}
-  <link rel="stylesheet" href="/modules/apostrophe-global/palette-styles?{{ global.paletteCounter or 'e' }}">
+  <link rel="stylesheet" href="/modules/apostrophe-global/palette-styles?v={{ global.paletteCounter or 'e' }}">
 {% endmacro %}
 
 {% macro stylesheetTag() %}
