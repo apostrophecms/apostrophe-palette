@@ -44,18 +44,6 @@ modules: {
         unit: 'rem',
         mediaQuery: '(max-width: 59.99em)'
       }
-    ],
-    arrangePaletteFields: [
-      {
-        name: 'colors',
-        label: 'Color Settings',
-        fields: ['backgroundColor']
-      },
-      {
-        name: 'margins',
-        label: 'Margin Settings',
-        fields: ['imageWidgetMargins']
-      }
     ]
 }
 ```
@@ -87,6 +75,39 @@ A string used to wrap a rule in a CSS media query. The format is as follows `@me
 
 ### `arrangePaletteFields`
 You get the opportunity to group your palette fields with a similar syntax you group normal `apostrophe-schema` fields. Fields can be nested at a max depth of 2 levels.
+
+```javascript
+modules: {
+  // ... project level configuration
+  'apostrophe-palette-widgets': {},
+  'apostrophe-palette': {},
+  'apostrophe-palette-global': {
+    paletteFields: [ ], // a bunch of palette fields
+    arrangePaletteFields: [
+      {
+        name: 'colors',
+        label: 'Color Settings',
+        fields: ['backgroundColor', 'textColor', 'footerColor']
+      },
+      {
+        name: 'type',
+        label: 'Typography',
+        fields: [
+          { 
+            name: 'headline',
+            label: 'Headline Style',
+            fields: ['headlineSize', 'headlineFont', 'headlineColor']
+          },
+          { 
+            name: 'body',
+            label: 'Body Copy Style',
+            fields: ['bodySize', 'bodyFont', 'bodyLineHeight']
+          }
+        ]
+      }
+    ]
+}
+```
 
 ## Including the interface and stylesheets in your template
 The interface for interacting with the palette values is actually a special `apostrophe-widget`. There is a macro to help you put it on the page. You'll also need to add hooks for the stylesheet link (which brings in the styles as the exist when the page is loaded) and tag (which gets appended to when palette is changed, giving the editor immediate changes).
