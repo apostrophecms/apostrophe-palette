@@ -7,9 +7,7 @@ An in-context interface for changing CSS
 
 Developers define properties that can be changed by passing the module an array of `apostrophe-schema` fields.
 
-`apostrophe-palette` assumes:
-- You want access to this schema data everywhere (extends `apostrophe-global`).
-- You want to affect the front-end by way of wrapper classes that describe the changes made in the palette tool.
+`apostrophe-palette` assumes you want access to this schema data everywhere (extends `apostrophe-global`).
 
 The bundle includes:
 - `apostrophe-palette-global` pushes your palette schema to the `apostrophe-global` module
