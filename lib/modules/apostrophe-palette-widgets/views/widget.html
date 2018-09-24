@@ -39,10 +39,10 @@
   <form class="apos-palette-form apos-ui" data-apos-palette-form>
     <ul class="apos-palette-form-schema" >
       {% for item in menu %}
-        {% if item.type === 'field' %}
-          {{ renderField(item.schema[0]) }}
-        {% elif item.type === 'group' %}
+        {% if item.type === 'group' %}
           {{ renderGroup(item) }}
+        {% else %}
+          {{ renderField(item) }}
         {% endif %}
       {% endfor %}
     </ul>
