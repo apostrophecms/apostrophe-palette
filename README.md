@@ -41,6 +41,14 @@ modules: {
         step: 0.1,
         unit: 'rem',
         mediaQuery: '(max-width: 59.99em)'
+      },
+      {
+        name: 'buttonShadow',
+        label: 'Button Shadow',
+        type: 'color',
+        selector: '.c-button',
+        property: 'box-shadow',
+        valueTemplate: '0 0 7px 2px %VALUE%'
       }
     ]
 }
@@ -65,6 +73,9 @@ A string or array of strings to be used as CSS properties. These are printed as-
 
 #### `unit` (optional)
 A string that is appended after the value of the field is printed as a CSS rule.
+
+#### `valueTemplate` (optional)
+Instead of the property value being derived solely from the field value, a template can be passed where the `%VALUE%` get replaced with the field value. Useful for complex CSS values that aren't totally being controlled by palette, like `box-shadow`.
 
 #### `mediaQuery` (optional)
 A string used to wrap a rule in a CSS media query. The format is as follows `@media YOURMEDIAQUERY { YOURSELECTOR { YOURPROPERTY YOURUNIT; } }`
@@ -91,12 +102,12 @@ modules: {
         name: 'type',
         label: 'Typography',
         fields: [
-          { 
+          {
             name: 'headline',
             label: 'Headline Style',
             fields: ['headlineSize', 'headlineFont', 'headlineColor']
           },
-          { 
+          {
             name: 'body',
             label: 'Body Copy Style',
             fields: ['bodySize', 'bodyFont', 'bodyLineHeight']
