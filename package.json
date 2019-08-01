@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/apostrophecms/apostrophe-palette#readme",
   "devDependencies": {
-    "eslint": "^4.2.0",
+    "eslint": ">=4.18.2",
     "eslint-config-punkave": "^1.0.8",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.7.0",
@@ -31,7 +31,8 @@
   "dependencies": {
     "async": "^2.6.0",
     "install-peers": "^1.0.2",
-    "lodash": "^4.17.4",
+    "js-yaml": ">=3.13.1",
+    "lodash": ">=4.17.13",
     "node-cache": "^4.2.0"
   }
 }
