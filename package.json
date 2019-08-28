@@ -1,6 +1,6 @@
 {
   "name": "apostrophe-palette",
-  "version": "2.0.21",
+  "version": "2.0.22",
   "description": "In-context style toggling save to the apostrophe-global doc",
   "main": "index.js",
   "scripts": {
