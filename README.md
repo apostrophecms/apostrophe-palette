@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/apostrophecms/apostrophe-palette/tree/master.svg?style=svg)](https://circleci.com/gh/apostrophecms/apostrophe-palette/tree/master)
+
 # apostrophe-palette
 An in-context interface for changing CSS
 
