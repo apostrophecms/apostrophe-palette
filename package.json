@@ -31,9 +31,6 @@
   },
   "dependencies": {
     "async": "^2.6.0",
-    "install-peers": "^1.0.2",
-    "js-yaml": ">=3.13.1",
-    "lodash": ">=4.17.13",
-    "node-cache": "^4.2.0"
+    "lodash": ">=4.17.13"
   }
 }
