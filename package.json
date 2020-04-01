@@ -1,10 +1,10 @@
 {
   "name": "apostrophe-palette",
-  "version": "2.0.23",
+  "version": "2.0.24",
   "description": "In-context style toggling save to the apostrophe-global doc",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx eslint ."
   },
   "repository": {
     "type": "git",
@@ -14,25 +14,23 @@
     "ApostropheCMS",
     "apostrophe"
   ],
-  "author": "P'unk Ave",
+  "author": "Apostrophe Technologies, Inc.",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/apostrophecms/apostrophe-palette/issues"
   },
   "homepage": "https://github.com/apostrophecms/apostrophe-palette#readme",
   "devDependencies": {
-    "eslint": ">=4.18.2",
-    "eslint-config-punkave": "^1.0.8",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-node": "^5.1.0",
-    "eslint-plugin-standard": "^3.0.1"
+    "eslint": "^6.8.0",
+    "eslint-config-apostrophe": "^3.1.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1"
   },
   "dependencies": {
     "async": "^2.6.0",
-    "install-peers": "^1.0.2",
-    "js-yaml": ">=3.13.1",
-    "lodash": ">=4.17.13",
-    "node-cache": "^4.2.0"
+    "lodash": ">=4.17.13"
   }
 }

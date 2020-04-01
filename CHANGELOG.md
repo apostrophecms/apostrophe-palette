@@ -1,4 +1,8 @@
 # Changelog
+/Users/abea/Apos/apostrophe-palette/lib/modules/apostrophe-palette-widgets/public/js/leanUser.js
+## 2.0.24
+
+* Updates the eslint config and cleans up linter errors. Sets up CircleCI.
 
 ## 2.0.23
 
