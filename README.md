@@ -53,6 +53,7 @@ modules: {
         valueTemplate: '0 0 7px 2px %VALUE%'
       }
     ]
+  }
 }
 ```
 
