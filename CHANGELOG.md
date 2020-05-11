@@ -1,4 +1,12 @@
 # Changelog
+/Users/abea/Apos/apostrophe-palette/lib/modules/apostrophe-palette-widgets/public/js/leanUser.js
+## 2.0.24
+
+* Updates the eslint config and cleans up linter errors. Sets up CircleCI.
+
+## 2.0.23
+
+* No longer sets the site to the `user` asset scene, which means we no longer push a lot of extra JS and CSS when palette is present for logged out site visitors.
 
 ## 2.0.17
 
