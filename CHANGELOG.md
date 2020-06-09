@@ -1,7 +1,11 @@
-# Changelog
+## v2.0.26
+
+* Workflow "submit / commit" UI now pops up properly after changes made via palett's custom UI.
+* Namespaced JavaScript functions properly, keeping them out of global scope.
 
 ## v2.0.25
-Updates styles to be friendly with new `color` field updates.
+
+* Updates styles to be friendly with new `color` field updates.
 
 ## 2.0.24
 
