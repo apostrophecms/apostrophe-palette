@@ -1,4 +1,4 @@
-## v2.0.26
+## v2.0.26 - 2020-06-17
 
 * Workflow "submit / commit" UI now pops up properly after changes made via palett's custom UI.
 * Namespaced JavaScript functions properly, keeping them out of global scope.
