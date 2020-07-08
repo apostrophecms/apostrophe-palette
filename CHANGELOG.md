@@ -1,3 +1,6 @@
+## v2.0.26
+* apostrophe-palette adds itself to a list of admin bar menu items that hide themselves when apostrophe-workflow is preview mode
+
 ## v2.0.26 - 2020-06-17
 
 * Workflow "submit / commit" UI now pops up properly after changes made via palett's custom UI.
