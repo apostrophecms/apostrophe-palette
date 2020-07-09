@@ -1,5 +1,5 @@
 ## v2.0.27
-* apostrophe-palette adds itself to a list of admin bar menu items that hide themselves when apostrophe-workflow is preview mode
+* apostrophe-palette adds itself to a list of admin bar menu items that hide themselves when apostrophe-workflow is in preview/live mode.
 
 ## v2.0.26 - 2020-06-17
 
