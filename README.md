@@ -15,7 +15,7 @@ The bundle includes:
 - `apostrophe-palette-global` pushes your palette schema to the `apostrophe-global` module
 - `apostrophe-palette-schemas` provides identifying wrappers for schema fields
 - `apostrophe-palette-widgets` provides the main interface for interacting with the schema and hooks for saving / reacting.
-- `apostrophe-palette-admin-bar` palette adds itself to a list of admin bar menu items to hide when apostrophe-workflow is in preview mode
+- `apostrophe-palette-admin-bar` palette adds itself to a list of admin bar menu items to hide when apostrophe-workflow is in preview/live mode
 
 ## Example configuration
 
