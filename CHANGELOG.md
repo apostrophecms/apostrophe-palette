@@ -1,4 +1,4 @@
-## v2.0.27
+## v2.0.27 - 2020-07-15
 * apostrophe-palette adds itself to a list of admin bar menu items that hide themselves when apostrophe-workflow is in preview/live mode.
 
 ## v2.0.26 - 2020-06-17
