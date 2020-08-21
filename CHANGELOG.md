@@ -1,3 +1,7 @@
+## v2.0.28 - 2020-08-20
+
+* `apostrophe-palette` no longer pushes the entirety of `req.data.global` into JSON in the page when logged in. This is a fix for performance when editing, as well as in some cases a fix for broken pages when logged in. If your site allows untrusted individuals to log in and you store sensitive information such as API keys in Apostrophe's global preferences, then this should also be regarded as a security fix.
+
 ## v2.0.27 - 2020-07-15
 * apostrophe-palette adds itself to a list of admin bar menu items that hide themselves when apostrophe-workflow is in preview/live mode.
 
