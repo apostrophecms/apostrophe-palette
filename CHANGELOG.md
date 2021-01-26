@@ -1,5 +1,6 @@
-## v2.0.30 - 2021-01-26
+## v2.0.30 - 2021-01-27
 * Allow falsey values other than `null` to be saved for palette fields.
+
 ## v2.0.29 - 2020-11-23
 
 * Compatible with the `htmlHelp` option of schema fields. Previously this module disabled that option.
